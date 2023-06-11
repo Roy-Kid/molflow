@@ -3,8 +3,10 @@ from molflow.parser import LmpLogParser
 import time
 import nni
 
+optimized_params = nni.get_next_parameter()
+
 # start to run the task
-os.system('lmp -in in.lj')
+os.system(f'lmp -in in.lj -var eps {optimized_params["eps"]} -var sig {optimized_params["sig"]}')
 
 parser = LmpLogParser(log_name = 'lammps.log')
 

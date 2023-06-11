@@ -5,11 +5,6 @@ search_space = {
     'sig': {'_type': "uniform", '_value': [0.1, 1.0]}
 }
 
-params = {
-    'eps': 1.0,
-    'sig': 1.0
-}
-
 # setup MD simulation task
 experiment = nni.Experiment('local')
 experiment.config.trial_command = 'python run.py'
